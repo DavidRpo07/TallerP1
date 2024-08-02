@@ -1,2 +1,25 @@
-<h1>Welcome to the Home Page, <span style="color: blue;">{{name}}</span></h1>
-<h1>This is the Full Home Page</h1>
+<h1>Welcome to the Home Page <span style="color: blue;">{{name}}</span></h1>
+
+
+<div class="container">
+    <form action ="">
+        <div class="mb-3">
+            <label for="searchMovie" class="form-label">
+                Search for a Movie
+            </label>
+            <input type="text" class="form-control" id="searchMovie" name="searchMovie"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <p>Searching for {{searchTerm}}</p>
+        {% for movie in movies %}
+               <h2>{{ movie.title}}</h2>
+               <h3>{{ movie.description}}</h3>
+               <img src="{{ movie.image.url }}">
+               {% if movie.url %}
+                   <a href="{{ movie.url }}"> Movie Link</a>
+               {% endif %}
+        {% endfor %}
+    <br/>
+</div>
+            
